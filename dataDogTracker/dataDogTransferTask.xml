@@ -1,0 +1,9 @@
+<component name="dataDogTransferTask" extends="Task">
+    <interface>
+        <field id="url" type="string" value="" />
+        <field id="body" type="assocArray" value="{}" />
+        <field id="data" type="int" />
+    </interface>
+
+    <script type="text/brightscript" uri="./dataDogTransferTask.brs" />
+</component>
