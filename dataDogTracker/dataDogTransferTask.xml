@@ -2,8 +2,12 @@
     <interface>
         <field id="url" type="string" value="" />
         <field id="body" type="assocArray" value="{}" />
-        <field id="data" type="int" />
     </interface>
 
     <script type="text/brightscript" uri="./dataDogTransferTask.brs" />
+    <script type="text/brightscript" uri="./services/requestService.brs" />
+    <script type="text/brightscript" uri="./builders/requestBuilder.brs" />
+    <script type="text/brightscript" uri="./models/httpMethod.brs" />
+    <script type="text/brightscript" uri="./models/apiRequest.brs" />
+    <script type="text/brightscript" uri="./models/apiResponse.brs" />
 </component>

@@ -62,13 +62,7 @@ end function
 
 sub sendEvent(body as Object)
     task = CreateObject("roSgNode", "dataDogTransferTask")
-    task.observeField("data", "onTaskDataChanged")
     task.url = m.url
     task.body = body
     task.control = "RUN"
-end sub
-
-sub onTaskDataChanged(event as Object)
-    statusCode = event.getData()
-    ? statusCode.toStr() + " <= Status Code of sending the error details to the server"
 end sub
