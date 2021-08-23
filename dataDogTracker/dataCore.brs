@@ -12,7 +12,7 @@ sub setApplicationInfo()
     m.url = getRUMApplicationURL(clientConfiguration.clientToken)
 end sub
 
-sub registerError(errorDetails as Object, applicationID as String, applicationToken as String)
+sub registerError(errorDetails as Object)
     view = getViewData()
 
     if view <> invalid
