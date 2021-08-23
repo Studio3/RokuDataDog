@@ -7,4 +7,5 @@
     <script type="text/brightscript" uri="./viewSample.brs" />
     <script type="text/brightscript" uri="./errorSample.brs" />
     <script type="text/brightscript" uri="./dataDogConfig.brs" />
+    <script type="text/brightscript" uri="./clientConfiguration.brs" />
 </component>

@@ -1,0 +1,6 @@
+function getClientCredentials() as Object
+    return {
+        applicationID: "522216fc-1e62-43db-a476-73e98e700cf9",
+        clientToken: "pubc69c4739d834f0aa345ba32aa3def485"
+    }
+end function

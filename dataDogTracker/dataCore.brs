@@ -3,11 +3,16 @@ sub init()
     m.viewID = getUUID()
     m.sessionID = getUUID()
     m.date = getDateInMillis()
+    setApplicationInfo()
+end sub
+
+sub setApplicationInfo()
+    clientConfiguration = getClientConfiguration()
+    m.applicationID = clientConfiguration.applicationID
+    m.url = getRUMApplicationURL(clientConfiguration.clientToken)
 end sub
 
 sub registerError(errorDetails as Object, applicationID as String, applicationToken as String)
-    m.applicationID = applicationID
-    m.url = getRUMApplicationURL(applicationToken)
     view = getViewData()
 
     if view <> invalid
