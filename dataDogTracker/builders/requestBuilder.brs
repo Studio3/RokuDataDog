@@ -1,7 +1,6 @@
 function RequestBuilder() as Object
     this = {
         _baseUrl: invalid
-        _path: ""
         _method: invalid
         _body: {}
         _headers: {}
@@ -9,10 +8,6 @@ function RequestBuilder() as Object
 
     this.setUrl = function(url as String)
         m._baseUrl = url
-    end function
-
-    this.setPath = function(path as String)
-        m._path = path
     end function
 
     this.setMethod = function(method as String)
@@ -34,7 +29,7 @@ function RequestBuilder() as Object
     end function
 
     this.getUrl = function() as String
-        return m._baseUrl + m._path
+        return m._baseUrl
     end function
 
     this.getMethod = function() as String
