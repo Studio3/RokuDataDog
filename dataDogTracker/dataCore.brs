@@ -1,9 +1,5 @@
 sub init()
     m.deviceInfo = CreateObject("roDeviceInfo")
-    m.sectionRegistryName = "BitmovinAnalytics"
-    m.sample = invalid
-
-    m.appInfo = CreateObject("roAppInfo")
     m.viewID = getUUID()
     m.sessionID = getUUID()
     m.date = getDateInMillis()

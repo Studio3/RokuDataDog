@@ -1,5 +1,4 @@
 sub init()
-    m.url = m.top.findNode("url")
     m.TIMEOUT = 60000
     m.appInfo = CreateObject("roAppInfo")
 
