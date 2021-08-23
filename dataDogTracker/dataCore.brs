@@ -40,25 +40,26 @@ end function
 
 function getViewData() as Object
     view = getViewSample()
-    view.view.id = m.viewID
-    view.date = m.date
-    view.session.id = m.sessionID
-    view.application.id = m.applicationID
+    setDefaultRequestData(view)
 
     return view
 end function
 
 function getErrorData(errorDetails as Object) as Object
     errorData = getErrorSample()
-    errorData.date = m.date
-    errorData.view.id = m.viewID
-    errorData.session.id = m.sessionID
-    errorData.application.id = m.applicationID
+    setDefaultRequestData(errorData)
     errorData.error.message = errorDetails.message
     errorData.error.backtrace = errorDetails.backtrace
 
     return errorData
 end function
+
+sub setDefaultRequestData(requestBody as Object)
+    requestBody.date = m.date
+    requestBody.view.id = m.viewID
+    requestBody.session.id = m.sessionID
+    requestBody.application.id = m.applicationID
+end sub
 
 function getRUMApplicationURL(applicationToken as String) as String
     config = getDataDogConfig()
