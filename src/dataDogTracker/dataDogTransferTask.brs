@@ -1,7 +1,6 @@
 sub init()
     m.appInfo = CreateObject("roAppInfo")
     m.requestService = requestService()
-
     m.top.functionName = "execute"
 end sub
 

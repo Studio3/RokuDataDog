@@ -13,11 +13,20 @@
     "type": "git",
     "url": "git+https://github.com/Studio3/RokuDataDog.git"
   },
-  "keywords": ["ropm"],
+  "keywords": [
+      "ropm",
+      "components",
+      "brightscript",
+      "scenegraph",
+      "datadog",
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Studio3/RokuDataDog/issues"
   },
-  "homepage": "https://github.com/Studio3/RokuDataDog#readme"
+  "homepage": "https://github.com/Studio3/RokuDataDog#readme",
+  "ropm": {
+    "packageRootDir": "src"
+  }
 }
