@@ -1,5 +1,6 @@
 sub init()
     m.deviceInfo = CreateObject("roDeviceInfo")
+    m.appInfo = CreateObject("roAppInfo")
     m.viewID = getUUID()
     m.sessionID = getUUID()
     m.date = getDateInMillis()
@@ -63,7 +64,8 @@ end sub
 
 function getRUMApplicationURL(applicationToken as String) as String
     config = getDataDogConfig()
-    return substitute("{0}{1}{2},version:{3}",config.url, applicationToken, config.query, m.deviceInfo.GetModelDetails().modelNumber)
+    applicationDetails = substitute("variant:{0},version:{1},env:{2}",m.deviceInfo.GetModelDetails().modelNumber, m.appInfo.getVersion(), m.appInfo.getID())
+    return substitute("{0}{1}{2},{3}",config.url, applicationToken, config.query, applicationDetails)
 end function
 
 sub sendEvent(body as Object)
