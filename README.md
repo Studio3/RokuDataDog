@@ -23,3 +23,9 @@ dataDogTracker = CreateObject("roSgNode", "dataCore")
 dataDogTracker.callFunc("registerError", e)
 ```
 Where `e` - the error got on `CATCH`
+
+## How to use the Test Project
+- Download `test-project` file to your machine
+- Update `clientConfiguration.brs` file with your ID and token
+- Archive the project and run it on your device
+- Look in DataDog RUM application to see the view with one error in it
