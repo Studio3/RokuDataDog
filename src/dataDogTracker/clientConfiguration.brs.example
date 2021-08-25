@@ -1,0 +1,6 @@
+function getClientConfiguration() as Object
+    return {
+        applicationID: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        clientToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+end function

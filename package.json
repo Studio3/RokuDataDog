@@ -1,0 +1,32 @@
+{
+  "ropm": {
+    "rootDir": "./dataDogTracker"
+  },
+  "name": "rokudatadog",
+  "description": "Roku DataDog error tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Studio3/RokuDataDog.git"
+  },
+  "keywords": [
+      "ropm",
+      "components",
+      "brightscript",
+      "scenegraph",
+      "datadog",
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Studio3/RokuDataDog/issues"
+  },
+  "homepage": "https://github.com/Studio3/RokuDataDog#readme",
+  "ropm": {
+    "packageRootDir": "src"
+  }
+}
