@@ -29,3 +29,16 @@ Where `e` - the error got on `CATCH`
 - Update `clientConfiguration.brs` file with your ID and token
 - Archive the project and run it on your device
 - Look in DataDog RUM application to see the view with one error in it
+
+## Data recieved by DataDog RUM application
+Currently the application is sending a view event and one error event, both sharing same ids.
+#### What you can see inside the error
+
+- date
+- country
+- application ID
+- application version
+- device model
+- device OS version
+- message
+- backtrace
