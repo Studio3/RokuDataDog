@@ -20,8 +20,8 @@
       "scenegraph",
       "datadog",
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "EPIX Entertainment LLC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Studio3/RokuDataDog/issues"
   },
