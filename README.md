@@ -11,7 +11,7 @@ Use following command to get the package to your application
 ```
 ropm install rokudatadog
 ```
-The package should be stored in `/components` file
+The package should be stored in `/components` directory
 
 ### How to use it:
 - Create your RUM application in DataDog
