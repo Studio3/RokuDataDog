@@ -13,21 +13,30 @@
 ' limitations under the License.
 
 sub init()
+end sub
+
+function createDataDogConfiguration(applicationId = "" as String, clientToken = "" as String, site = "" as String, service = "" as String, sampleRate = 100 as Integer, trackInteractions = true as Boolean) as Object
+    return {
+        APPLICATION_ID: applicationId
+        CLIENT_TOKEN: clientToken
+        SITE: site
+        SERVICE: service
+        SAMPLE_RATE: sampleRate
+        TRACK_INTERACTIONS: trackInteractions
+    }
+end function
+
+sub setConfiguration(configuration as Object)
     m.deviceInfo = CreateObject("roDeviceInfo")
     m.appInfo = CreateObject("roAppInfo")
     m.viewID = getUUID()
     m.sessionID = getUUID()
     m.date = getDateInMillis()
-    setApplicationInfo()
+    m.applicationID = configuration.application_id
+    m.url = getRUMApplicationURL(configuration.client_token)
 end sub
 
-sub setApplicationInfo()
-    clientConfiguration = getClientConfiguration()
-    m.applicationID = clientConfiguration.applicationID
-    m.url = getRUMApplicationURL(clientConfiguration.clientToken)
-end sub
-
-sub registerError(errorDetails as Object)
+sub sendError(errorDetails as Object)
     view = getViewData()
 
     if view <> invalid

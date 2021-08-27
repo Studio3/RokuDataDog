@@ -12,14 +12,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-<component name="dataCore" extends="Group">
+<component name="dataDogTracker" extends="Group">
     <interface>
-        <function name="registerError" />
+        <function name="createDataDogConfiguration" />
+        <function name="setConfiguration" />
+        <function name="sendError" />
     </interface>
 
-    <script type="text/brightscript" uri="./dataCore.brs" />
     <script type="text/brightscript" uri="./viewSample.brs" />
     <script type="text/brightscript" uri="./errorSample.brs" />
     <script type="text/brightscript" uri="./dataDogConfig.brs" />
-    <script type="text/brightscript" uri="./clientConfiguration.brs" />
+    <script type="text/brightscript" uri="./dataDogTracker.brs" />
 </component>
