@@ -13,17 +13,16 @@
 ' limitations under the License.
 
 sub init()
-    TRY
-        explodingMethod()
-    CATCH error
-        dataDogTracker = CreateObject("roSGNode", "dataDogTracker")
-        dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", "[application_id]", "[application_token]")
-        dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
-        dataDogTracker.callFunc("sendError", error)
-    end TRY
 end sub
 
-sub explodingMethod()
-    x = 1
-    ? x.foo
+function createDataDogConfiguration(applicationId = "" as String, clientToken = "" as String, site = "" as String, service = "" as String, sampleRate = 100 as Integer, trackInteractions = true as Boolean) as Object
+    return DataDogConfiguration(applicationId, clientToken, site, service, sampleRate, trackInteractions)
+end function
+
+sub setConfiguration(configuration as Object)
+    m.dataDogTracker = DataDogTracker(configuration)
+end sub
+
+sub sendError(errorDetails as Object)
+    m.dataDogTracker.sendError(errorDetails)
 end sub

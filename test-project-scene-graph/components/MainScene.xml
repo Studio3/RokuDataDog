@@ -13,5 +13,5 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 
 <component name='MainScene' extends='Scene'>
-  <script type='text/brightscript' uri='MainScene.brs' />
+    <script type='text/brightscript' uri='MainScene.brs' />
 </component>
