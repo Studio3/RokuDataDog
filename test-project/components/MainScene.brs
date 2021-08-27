@@ -17,7 +17,7 @@ sub init()
         explodingMethod()
     CATCH error
         dataDogTracker = CreateObject("roSGNode", "dataDogTracker")
-        dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", ["application_id"], ["application_token"])
+        dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", "[application_id]", "[application_token]")
         dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
         dataDogTracker.callFunc("sendError", error)
     end TRY
