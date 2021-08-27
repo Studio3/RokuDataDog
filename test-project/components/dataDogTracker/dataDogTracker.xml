@@ -14,13 +14,13 @@ limitations under the License. -->
 
 <component name="dataDogTracker" extends="Group">
     <interface>
-        <function name="createDataDogConfiguration"/>
-        <function name="setConfiguration"/>
-        <function name="sendError"/>
+        <function name="createDataDogConfiguration" />
+        <function name="setConfiguration" />
+        <function name="sendError" />
     </interface>
 
-    <script type="text/brightscript" uri="./dataDogTracker.brs" />
     <script type="text/brightscript" uri="./viewSample.brs" />
     <script type="text/brightscript" uri="./errorSample.brs" />
     <script type="text/brightscript" uri="./dataDogConfig.brs" />
+    <script type="text/brightscript" uri="./dataDogTracker.brs" />
 </component>
