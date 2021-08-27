@@ -15,18 +15,23 @@ The package should be stored in `/components` file
 
 ### How to use it:
 - Create your RUM application in DataDog
-- Define your application ID and your client token(got from DataDog RUM app) inside a file called `clientConfiguration.brs`. You have the file `clientConfiguration.brs.example` as model.
 - Create a `try-catch` block where you expect any error to occure
-- Inside the `catch`, send your error to the DataDog RUM application. To do that you'll have to create dataCore component and call `registerError` function; like in the following example:
+- Inside the `catch`:
+ - Create dataDogTracker component
+ - Create and set the dataDog configuration
+ - Send the error to dataDog
+ - In the following example you can observe how to set up what was explained above:
 ```
-dataDogTracker = CreateObject("roSgNode", "dataCore")
-dataDogTracker.callFunc("registerError", e)
+ dataDogTracker = CreateObject("roSGNode", "dataDogTracker")
+ dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", "[application_id]", "[application_token]")
+ dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
+ dataDogTracker.callFunc("sendError", error)
 ```
-Where `e` - the error got on `CATCH`
 
 ## How to use the Test Project
 - Download `test-project` file to your machine
-- Update `clientConfiguration.brs` file with your ID and token
+- Replace `[application_id]` with your application id
+- Replace `[application_token]` with your application token
 - Archive the project and run it on your device
 - Look in DataDog RUM application to see the view with one error in it
 
