@@ -30,7 +30,7 @@ The package should be stored in `/components` directory
 
 ## How to use the Test Project
 - Download `test-project` file to your machine
-- Note that in the scene component there are 2 ways of the DataDog tracher implementation:
+- Note that in the scene component there are 2 ways of the DataDog tracker implementation:
  - BrightScript implementation (currently used)
  - SceneGraph implementation (commented inside the code)
 - Replace `[application_id]` with your application id
