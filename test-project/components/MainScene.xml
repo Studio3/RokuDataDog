@@ -14,4 +14,11 @@ limitations under the License. -->
 
 <component name='MainScene' extends='Scene'>
     <script type='text/brightscript' uri='MainScene.brs' />
+    <script type="text/brightscript" uri="pkg:/components/dataDogTracker/viewSample.brs" />
+    <script type="text/brightscript" uri="pkg:/components/dataDogTracker/errorSample.brs" />
+    <script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogConfig.brs" />
+    <script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogConfiguration.brs" />
+    <script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogTracker.brs" />
+
+    <!-- In a SceneGraph project you only need to define the screen/scene file's script -->
 </component>
