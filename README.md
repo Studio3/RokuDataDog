@@ -72,3 +72,6 @@ Currently the application is sending a view event and one error event, both shar
 - device OS version
 - message
 - backtrace
+
+## License
+This library is licensed under the Apache 2.0 License. See the [LICENSE](https://github.com/Studio3/RokuDataDog/blob/main/LICENSE) for details.
