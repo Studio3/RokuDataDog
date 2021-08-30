@@ -13,10 +13,12 @@ ropm install rokudatadog
 ```
 The package should be stored in `/components` directory
 
-### How to use it:
+### How to use DataDogTracker:
 - Create your RUM application in DataDog
 - Create a `try-catch` block where you expect any error to occure
-- Inside the `catch`:
+
+#### Used with a sceneGraph project:
+- Inside the `CATCH`:
  - Create dataDogTracker component
  - Create and set the dataDog configuration
  - Send the error to dataDog
@@ -26,6 +28,26 @@ The package should be stored in `/components` directory
  dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", "[application_id]", "[application_token]")
  dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
  dataDogTracker.callFunc("sendError", error)
+```
+
+#### Used with brightscript project:
+
+- Inside the xml file of your component you have to include the following scripts:
+```
+<script type="text/brightscript" uri="pkg:/components/dataDogTracker/viewSample.brs" />
+<script type="text/brightscript" uri="pkg:/components/dataDogTracker/errorSample.brs" />
+<script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogConfig.brs" />
+<script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogConfiguration.brs" />
+<script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogTracker.brs" />
+```
+- Inside the `CATCH`:
+ - Set the dataDog configuration
+ - Send the error to dataDog
+ - In the following example you can observe how to set up what was explained above:
+```
+dataDogTrackerConfiguration = DataDogConfiguration("[application_id]", "[application_token]")
+dataDogTracker = DataDogTracker(dataDogTrackerConfiguration)
+dataDogTracker.sendError(error)
 ```
 
 ## How to use the Test Project
