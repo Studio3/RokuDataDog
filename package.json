@@ -13,11 +13,11 @@
     "url": "git+https://github.com/Studio3/RokuDataDog.git"
   },
   "keywords": [
-      "ropm",
-      "components",
-      "brightscript",
-      "scenegraph",
-      "datadog",
+    "ropm",
+    "components",
+    "brightscript",
+    "scenegraph",
+    "datadog"
   ],
   "author": "EPIX Entertainment LLC",
   "license": "Apache-2.0",
