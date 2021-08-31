@@ -1,11 +1,10 @@
 {
-  "ropm": {
-    "rootDir": "./dataDogTracker"
-  },
-  "name": "rokudatadog",
+  "name": "roku-data-dog",
+  "version": "0.10.0",
   "description": "Roku DataDog error tracker",
-  "version": "1.0.0",
-  "main": "index.js",
+  "files": [
+    "src/**/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -9,7 +9,7 @@ A tool to track your ROKU application errors.
 ## Installation
 Use following command to get the package to your application
 ```
-ropm install rokudatadog
+ropm install roku-data-dog
 ```
 The package should be stored in `/components` directory
 
