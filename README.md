@@ -35,11 +35,11 @@ dataDogTracker.callFunc("sendError", error)
 
 - Inside the xml file of your component you have to include the scripts for the following components:
 ```
-viewSample.brs
-errorSample.brs
-dataDogConfig.brs
-dataDogTracker.brs
-dataDogConfiguration.brs
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/viewSample.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/errorSample.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/dataDogConfig.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/dataDogConfiguration.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/dataDogTracker.brs" />
 ```
 - Inside the `CATCH`:
  - Set the dataDog configuration
@@ -53,12 +53,14 @@ dataDogTracker.sendError(error)
 ```
 
 ##### The following fields can be set inside the DataDog configuration:
-- applicationID - type: STRING - default: ""
-- clientToken - type: STRING - default: ""
-- site - type: STRING - default: ""
-- service - type: STRING - default: ""
-- sampleRate - type: INTEGER - default: 100
-- trackInteractions - type: BOOLEAN - default: true
+| Field | Type | Default Value |
+| :------------ | :------------ | :------------ |
+| applicationID | STRING | "" |
+| clientToken | STRING | "" |
+| site | STRING | "" |
+| service | STRING | "" |
+| sampleRate | INTEGER | 100 |
+| trackInteractions | BOOLEAN | TRUE |
 
 ## How to use the Test Project
 - Download `test-project` file to your machine
