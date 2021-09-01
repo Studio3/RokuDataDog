@@ -1,6 +1,6 @@
 # Roku DataDog error tracker
 - - -
-A tool to track your ROKU application errors.
+A tool to track your Roku application errors.
 
 ## Requirements
 - [NODE.js](https://nodejs.org/en/download/)
@@ -17,11 +17,11 @@ The package should be stored in `/components` directory
 - Create your RUM application in DataDog
 - Create a `try-catch` block where you expect any error to occure
 
-#### Used with a sceneGraph project:
+#### Used with a SceneGraph project:
 - Inside the `CATCH`:
  - Create dataDogTracker component
- - Create and set the dataDog configuration
- - Send the error to dataDog
+ - Create and set the DataDog configuration
+ - Send the error to DataDog
  - In the following example you can observe how to set up what was explained above:
 ```
  dataDogTracker = CreateObject("roSGNode", "dataDogTracker")
@@ -30,9 +30,9 @@ The package should be stored in `/components` directory
  dataDogTracker.callFunc("sendError", error)
 ```
 
-#### Used with brightscript project:
+#### Used with BrightScript project:
 
-- Inside the xml file of your component you have to include the following scripts:
+- Inside the XML file of your component you have to include the following scripts:
 ```
 <script type="text/brightscript" uri="pkg:/components/dataDogTracker/viewSample.brs" />
 <script type="text/brightscript" uri="pkg:/components/dataDogTracker/errorSample.brs" />
@@ -41,8 +41,8 @@ The package should be stored in `/components` directory
 <script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogTracker.brs" />
 ```
 - Inside the `CATCH`:
- - Set the dataDog configuration
- - Send the error to dataDog
+ - Set the DataDog configuration
+ - Send the error to DataDog
  - In the following example you can observe how to set up what was explained above:
 ```
 dataDogTrackerConfiguration = DataDogConfiguration("[application_id]", "[application_token]")
