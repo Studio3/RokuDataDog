@@ -1,8 +1,8 @@
 sub init()
 end sub
 
-function createDataDogConfiguration(applicationId = "" as String, clientToken = "" as String, site = "" as String, service = "" as String, sampleRate = 100 as Integer, trackInteractions = true as Boolean) as Object
-    return DataDogConfiguration(applicationId, clientToken, site, service, sampleRate, trackInteractions)
+function createDataDogConfiguration(configuration as Object) as Object
+    return DataDogConfiguration(configuration)
 end function
 
 sub setConfiguration(configuration as Object)

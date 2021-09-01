@@ -21,8 +21,8 @@ sub DataDogTracker___setDefaultValues()
     m.viewID = m._getUUID()
     m.sessionID = m._getUUID()
     m.date = m._getDateInMillis()
-    m.applicationID = m.CONFIGURATION.application_id
-    m.url = m._getRUMApplicationURL(m.CONFIGURATION.client_token)
+    m.applicationID = m.CONFIGURATION.applicationid
+    m.url = m._getRUMApplicationURL(m.CONFIGURATION.clienttoken)
 end sub
 
 sub DataDogTracker__sendError(errorDetails as Object)

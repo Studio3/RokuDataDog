@@ -24,31 +24,43 @@ The package should be stored in `/components` directory
  - Send the error to dataDog
  - In the following example you can observe how to set up what was explained above:
 ```
- dataDogTracker = CreateObject("roSGNode", "dataDogTracker")
- dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", "[application_id]", "[application_token]")
- dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
- dataDogTracker.callFunc("sendError", error)
+dataDogTracker = CreateObject("roSGNode", "dataDogTrackerComponent")
+dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
+dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", dataDogConfigurationObject)
+dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
+dataDogTracker.callFunc("sendError", error)
 ```
 
 #### Used with brightscript project:
 
-- Inside the xml file of your component you have to include the following scripts:
+- Inside the xml file of your component you have to include the scripts for the following components:
 ```
-<script type="text/brightscript" uri="pkg:/components/dataDogTracker/viewSample.brs" />
-<script type="text/brightscript" uri="pkg:/components/dataDogTracker/errorSample.brs" />
-<script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogConfig.brs" />
-<script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogConfiguration.brs" />
-<script type="text/brightscript" uri="pkg:/components/dataDogTracker/dataDogTracker.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/viewSample.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/errorSample.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/dataDogConfig.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/dataDogConfiguration.brs" />
+<script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/dataDogTracker.brs" />
 ```
 - Inside the `CATCH`:
  - Set the dataDog configuration
  - Send the error to dataDog
  - In the following example you can observe how to set up what was explained above:
 ```
-dataDogTrackerConfiguration = DataDogConfiguration("[application_id]", "[application_token]")
+dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
+dataDogTrackerConfiguration = DataDogConfiguration(dataDogConfigurationObject)
 dataDogTracker = DataDogTracker(dataDogTrackerConfiguration)
 dataDogTracker.sendError(error)
 ```
+
+##### The following fields can be set inside the DataDog configuration:
+| Field | Type | Default Value |
+| :------------ | :------------ | :------------ |
+| applicationID | STRING | "" |
+| clientToken | STRING | "" |
+| site | STRING | "" |
+| service | STRING | "" |
+| sampleRate | INTEGER | 100 |
+| trackInteractions | BOOLEAN | TRUE |
 
 ## How to use the Test Project
 - Download `test-project` file to your machine
