@@ -1,10 +1,27 @@
-function DataDogConfiguration(applicationId = "" as String, clientToken = "" as String, site = "" as String, service = "" as String, sampleRate = 100 as Integer, trackInteractions = true as Boolean) as Object
+function DataDogConfiguration(clientConfiguration) as Object
+    defaultConfiguration = getDefaultDataDogConfiguration()
+
+    for each configField in defaultConfiguration
+        if clientConfiguration[configField] = invalid then clientConfiguration[configField] = defaultConfiguration[configField]
+    end for
+
     return {
-        APPLICATION_ID: applicationId
-        CLIENT_TOKEN: clientToken
-        SITE: site
-        SERVICE: service
-        SAMPLE_RATE: sampleRate
-        TRACK_INTERACTIONS: trackInteractions
+        APPLICATION_ID: clientConfiguration.applicationId
+        CLIENT_TOKEN: clientConfiguration.clientToken
+        SITE: clientConfiguration.site
+        SERVICE: clientConfiguration.service
+        SAMPLE_RATE: clientConfiguration.sampleRate
+        TRACK_INTERACTIONS: clientConfiguration.trackInteractions
+    }
+end function
+
+function getDefaultDataDogConfiguration() as Object
+    return {
+        applicationId: ""
+        clientToken: ""
+        site: ""
+        service: ""
+        sampleRate: 100
+        trackInteractions: true
     }
 end function
