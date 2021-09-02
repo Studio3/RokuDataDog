@@ -10,8 +10,7 @@ sub init()
         ' Catch errors in a SceneGraph Project ->
         ' dataDogTracker = CreateObject("roSGNode", "dataDogTrackerComponent")
         ' dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
-        ' dataDogTrackerConfig = dataDogTracker.callFunc("createDataDogConfiguration", dataDogConfigurationObject)
-        ' dataDogTracker.callFunc("setConfiguration", dataDogTrackerConfig)
+        ' dataDogTracker.callFunc("setConfiguration", dataDogConfigurationObject)
         ' dataDogTracker.callFunc("sendError", error)
     end TRY
 end sub
