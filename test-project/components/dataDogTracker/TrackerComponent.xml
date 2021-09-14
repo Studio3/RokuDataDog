@@ -12,17 +12,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-<component name="dataDogTrackerComponent" extends="Group">
+<component name="TrackerComponent" extends="Group">
     <interface>
-        <function name="createDataDogConfiguration" />
         <function name="setConfiguration" />
         <function name="sendError" />
     </interface>
 
-    <script type="text/brightscript" uri="./dataDogTrackerComponent.brs" />
-    <script type="text/brightscript" uri="./dataDogConfiguration.brs" />
-    <script type="text/brightscript" uri="./dataDogTracker.brs" />
-    <script type="text/brightscript" uri="./dataDogConfig.brs" />
+    <script type="text/brightscript" uri="./TrackerComponent.brs" />
+    <script type="text/brightscript" uri="./Configuration.brs" />
+    <script type="text/brightscript" uri="./Tracker.brs" />
+    <script type="text/brightscript" uri="./Config.brs" />
     <script type="text/brightscript" uri="./errorSample.brs" />
     <script type="text/brightscript" uri="./viewSample.brs" />
 </component>

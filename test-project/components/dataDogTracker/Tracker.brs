@@ -12,24 +12,24 @@
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
 
-function DataDogTracker(configuration as Object) as Object
+function Tracker(configuration as Object) as Object
     return {
         CONFIGURATION: configuration
 
-        sendError: DataDogTracker__sendError
+        sendError: Tracker__sendError
 
-        _setDefaultValues: DataDogTracker___setDefaultValues
-        _getUUID: DataDogTracker___getUUID
-        _getDateInMillis: DataDogTracker___getDateInMillis
-        _getViewData: DataDogTracker___getViewData
-        _getErrorData: DataDogTracker___getErrorData
-        _setDefaultRequestData: DataDogTracker___setDefaultRequestData
-        _getRUMApplicationURL: DataDogTracker___getRUMApplicationURL
-        _sendEvent: DataDogTracker___sendEvent
+        _setDefaultValues: Tracker___setDefaultValues
+        _getUUID: Tracker___getUUID
+        _getDateInMillis: Tracker___getDateInMillis
+        _getViewData: Tracker___getViewData
+        _getErrorData: Tracker___getErrorData
+        _setDefaultRequestData: Tracker___setDefaultRequestData
+        _getRUMApplicationURL: Tracker___getRUMApplicationURL
+        _sendEvent: Tracker___sendEvent
     }
 end function
 
-sub DataDogTracker___setDefaultValues()
+sub Tracker___setDefaultValues()
     m.deviceInfo = CreateObject("roDeviceInfo")
     m.appInfo = CreateObject("roAppInfo")
     m.viewID = m._getUUID()
@@ -39,7 +39,7 @@ sub DataDogTracker___setDefaultValues()
     m.url = m._getRUMApplicationURL(m.CONFIGURATION.clienttoken)
 end sub
 
-sub DataDogTracker__sendError(errorDetails as Object)
+sub Tracker__sendError(errorDetails as Object)
     m._setDefaultValues()
     view = m._getViewData()
 
@@ -50,11 +50,11 @@ sub DataDogTracker__sendError(errorDetails as Object)
     end if
 end sub
 
-function DataDogTracker___getUUID() as String
+function Tracker___getUUID() as String
     return m.deviceInfo.getRandomUUID()
 end function
 
-function DataDogTracker___getDateInMillis()
+function Tracker___getDateInMillis()
     dateInMillis = CreateObject("roLongInteger")
     time = CreateObject("roDateTime")
     ts = time.AsSeconds()
@@ -66,14 +66,14 @@ function DataDogTracker___getDateInMillis()
     return dateInMillis
 end function
 
-function DataDogTracker___getViewData() as Object
+function Tracker___getViewData() as Object
     view = getViewSample()
     m._setDefaultRequestData(view)
 
     return view
 end function
 
-function DataDogTracker___getErrorData(errorDetails as Object) as Object
+function Tracker___getErrorData(errorDetails as Object) as Object
     errorData = getErrorSample()
     m._setDefaultRequestData(errorData)
     errorData.error.message = errorDetails.message
@@ -82,21 +82,21 @@ function DataDogTracker___getErrorData(errorDetails as Object) as Object
     return errorData
 end function
 
-sub DataDogTracker___setDefaultRequestData(requestBody as Object)
+sub Tracker___setDefaultRequestData(requestBody as Object)
     requestBody.date = m.date
     requestBody.view.id = m.viewID
     requestBody.session.id = m.sessionID
     requestBody.application.id = m.applicationID
 end sub
 
-function DataDogTracker___getRUMApplicationURL(applicationToken as String) as String
-    config = getDataDogConfig()
+function Tracker___getRUMApplicationURL(applicationToken as String) as String
+    config = getConfig()
     applicationDetails = substitute("variant:{0},version:{1},env:{2}",m.deviceInfo.GetModelDetails().modelNumber, m.appInfo.getVersion(), m.appInfo.getID())
     return substitute("{0}{1}{2},{3}",config.url, applicationToken, config.query, applicationDetails)
 end function
 
-sub DataDogTracker___sendEvent(body as Object)
-    task = CreateObject("roSgNode", "dataDogTransferTask")
+sub Tracker___sendEvent(body as Object)
+    task = CreateObject("roSgNode", "TransferTask")
     task.url = m.url
     task.body = body
     task.control = "RUN"
