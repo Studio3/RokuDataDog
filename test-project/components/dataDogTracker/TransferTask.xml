@@ -12,13 +12,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-<component name="dataDogTransferTask" extends="Task">
+<component name="TransferTask" extends="Task">
     <interface>
         <field id="url" type="string" value="" />
         <field id="body" type="assocArray" value="{}" />
     </interface>
 
-    <script type="text/brightscript" uri="./dataDogTransferTask.brs" />
+    <script type="text/brightscript" uri="./TransferTask.brs" />
     <script type="text/brightscript" uri="./services/requestService.brs" />
     <script type="text/brightscript" uri="./builders/requestBuilder.brs" />
     <script type="text/brightscript" uri="./services/httpMethod.brs" />

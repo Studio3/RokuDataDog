@@ -17,14 +17,14 @@ sub init()
         explodingMethod()
     CATCH error
         dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
-        dataDogTrackerConfiguration = DataDogConfiguration(dataDogConfigurationObject)
-        dataDogTracker = DataDogTracker(dataDogTrackerConfiguration)
+        dataDogTrackerConfiguration = Configuration(dataDogConfigurationObject)
+        dataDogTracker = Tracker(dataDogTrackerConfiguration)
         dataDogTracker.sendError(error)
 
         ' Catch errors in a SceneGraph Project ->
-        ' dataDogTracker = CreateObject("roSGNode", "dataDogTrackerComponent")
+        ' dataDogTracker = CreateObject("roSGNode", "TrackerComponent")
         ' dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
-        ' dataDogTracker.callFunc("setConfiguration", dataDogConfigurationObject)
+        ' dataDogTracker.callFunc("setConfiguration", ConfigurationObject)
         ' dataDogTracker.callFunc("sendError", error)
     end TRY
 end sub

@@ -12,9 +12,14 @@
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
 
-function getDataDogConfig() as Object
-    return {
-        url:  "https://rum-http-intake.logs.datadoghq.com/v1/input/"
-        query:  "?ddsource=react-native&ddtags=service%3Aroku"
+function HttpMethods() as Object
+    if m._HttpMethod = invalid then m._HttpMethod = {
+        GET: "GET"
+        POST: "POST"
+        HEAD: "HEAD"
+        DELETE: "DELETE"
+        PATCH: "PATCH"
     }
+
+    return m._HttpMethod
 end function

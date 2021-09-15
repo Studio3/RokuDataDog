@@ -12,9 +12,14 @@
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
 
-function getDataDogConfig() as Object
-    return {
-        url:  "https://rum-http-intake.logs.datadoghq.com/v1/input/"
-        query:  "?ddsource=react-native&ddtags=service%3Aroku"
-    }
-end function
+sub init()
+end sub
+
+sub setConfiguration(clientConfiguration as Object)
+    configuration = Configuration(clientConfiguration)
+    m.tracker = DataDogTracker(configuration)
+end sub
+
+sub sendError(errorDetails as Object)
+    m.tracker.sendError(errorDetails)
+end sub
