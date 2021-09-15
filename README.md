@@ -24,14 +24,13 @@ The package should be stored in `/components` directory
  - Send the error to DataDog
  - In the following example you can observe how to set up what was explained above:
 ```
-dataDogTracker = CreateObject("roSGNode", "dataDogTrackerComponent")
+dataDogTracker = CreateObject("roSGNode", "TrackerComponent")
 dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
-dataDogTracker.callFunc("setConfiguration", dataDogConfigurationObject)
+dataDogTracker.callFunc("setConfiguration", ConfigurationObject)
 dataDogTracker.callFunc("sendError", error)
 ```
 
 #### Used with BrightScript project:
-
 - Inside the xml file of your component you have to include the scripts for the following components:
 ```
 <script type="text/brightscript" uri="pkg:/[path_to_project]/dataDogTracker/viewSample.brs" />
@@ -46,10 +45,12 @@ dataDogTracker.callFunc("sendError", error)
  - In the following example you can observe how to set up what was explained above:
 ```
 dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
-dataDogTrackerConfiguration = DataDogConfiguration(dataDogConfigurationObject)
-dataDogTracker = DataDogTracker(dataDogTrackerConfiguration)
+dataDogTrackerConfiguration = Configuration(dataDogConfigurationObject)
+dataDogTracker = Tracker(dataDogTrackerConfiguration)
 dataDogTracker.sendError(error)
 ```
+
+###### Keep in mind that in the examples, the methods are called without any prefixes, so if you install the package with prefixes, use them for the package methods.
 
 ##### The following fields can be set inside the DataDog configuration:
 | Field | Type | Default Value |
