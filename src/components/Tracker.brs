@@ -84,7 +84,7 @@ end function
 
 sub Tracker___setDefaultRequestData(requestBody as Object)
     requestBody.date = m.date
-    requestBody.view.id = m.viewID
+    requestBody.view.id = m.appInfo.getTitle()
     requestBody.session.id = m.sessionID
     requestBody.application.id = m.applicationID
 end sub
