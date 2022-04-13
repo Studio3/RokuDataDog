@@ -1,4 +1,8 @@
 # Roku DataDog error tracker
+
+[![npm version](https://img.shields.io/npm/v/roku-data-dog.svg?logo=npm)](https://www.npmjs.com/package/roku-data-dog)
+[![monthly downloads](https://img.shields.io/npm/dm/roku-data-dog.svg?sanitize=true&logo=npm&logoColor=)](https://npmcharts.com/compare/roku-data-dog?minimal=true)
+[![license](https://img.shields.io/github/license/Studio3/RokuDataDog.svg)](LICENSE)
 - - -
 A tool to track your Roku application errors.
 
