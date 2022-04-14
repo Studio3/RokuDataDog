@@ -17,7 +17,7 @@ end sub
 
 sub setConfiguration(clientConfiguration as Object)
     configuration = Configuration(clientConfiguration)
-    m.tracker = DataDogTracker(configuration)
+    m.tracker = Tracker(configuration)
 end sub
 
 sub sendError(errorDetails as Object)
