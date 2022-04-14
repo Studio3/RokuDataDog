@@ -1,6 +1,6 @@
 {
   "name": "roku-data-dog",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Roku DataDog error tracker",
   "files": [
     "src/**/*"
