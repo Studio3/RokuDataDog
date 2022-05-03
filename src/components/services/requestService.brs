@@ -30,10 +30,10 @@ end function
 
 function RequestService__send(requestObject as Object) as Object
     roUrlTransfer = m._sendRequest(requestObject)
-    apiResponse = m._createResponse(roUrlTransfer)
+    apiResponseData = m._createResponse(roUrlTransfer)
 
-    m._printResponse(apiResponse, requestObject)
-    return apiResponse
+    m._printResponse(apiResponseData, requestObject)
+    return apiResponseData
 end function
 
 function RequestService___createResponse(roUrlTransfer as Object) as Object
@@ -67,8 +67,8 @@ function RequestService___getMessage(port as Object) as Object
     return roUrlEvent
 end function
 
-sub RequestService___printResponse(apiResponse as Object, requestObject as Object)
-    ? substitute("debug: {0}: {1} <- [{2}] {3}", apiResponse.getFailureReason(), apiResponse.getStatusCode().toStr(), requestObject.method, requestObject.url)
+sub RequestService___printResponse(apiResponseData as Object, requestObject as Object)
+    ? substitute("debug: {0}: {1} <- [{2}] {3}", apiResponseData.getFailureReason(), apiResponseData.getStatusCode().toStr(), requestObject.method, requestObject.url)
 end sub
 
 function RequestService___createRoUrlTransfer(requestObject as Object) as Object
