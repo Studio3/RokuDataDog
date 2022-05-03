@@ -16,8 +16,8 @@ sub init()
 end sub
 
 sub setConfiguration(clientConfiguration as Object)
-    configuration = Configuration(clientConfiguration)
-    m.tracker = Tracker(configuration)
+    configurationData = Configuration(clientConfiguration)
+    m.tracker = Tracker(configurationData)
 end sub
 
 sub sendError(errorDetails as Object)

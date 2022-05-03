@@ -13,7 +13,7 @@
 ' limitations under the License.
 
 function Configuration(clientConfiguration) as Object
-    configuration = {
+    configurationData = {
         applicationId: ""
         clientToken: ""
         site: ""
@@ -21,7 +21,7 @@ function Configuration(clientConfiguration) as Object
         sampleRate: 100
         trackInteractions: true
     }
-    configuration.append(clientConfiguration)
+    configurationData.append(clientConfiguration)
 
-    return configuration
+    return configurationData
 end function

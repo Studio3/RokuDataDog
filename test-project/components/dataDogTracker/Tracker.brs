@@ -12,9 +12,9 @@
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
 
-function Tracker(configuration as Object) as Object
+function Tracker(configurationData as Object) as Object
     return {
-        CONFIGURATION: configuration
+        CONFIGURATION_DATA: configurationData
 
         sendError: Tracker__sendError
 
@@ -35,8 +35,8 @@ sub Tracker___setDefaultValues()
     m.viewID = m._getUUID()
     m.sessionID = m._getUUID()
     m.date = m._getDateInMillis()
-    m.applicationID = m.CONFIGURATION.applicationid
-    m.url = m._getRUMApplicationURL(m.CONFIGURATION.clienttoken)
+    m.applicationID = m.CONFIGURATION_DATA.applicationid
+    m.url = m._getRUMApplicationURL(m.CONFIGURATION_DATA.clienttoken)
 end sub
 
 sub Tracker__sendError(errorDetails as Object)
