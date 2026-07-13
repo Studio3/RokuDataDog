@@ -16,15 +16,22 @@ sub init()
     TRY
         explodingMethod()
     CATCH error
+        customData = {
+            context: { screen: "MainScene", custom_attribute: "value" },
+            usr: { id: "[user_id]", email: "[user_email]" }
+        }
+
         dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
         dataDogTrackerConfiguration = Configuration(dataDogConfigurationObject)
         dataDogTracker = Tracker(dataDogTrackerConfiguration)
+        dataDogTracker.setCustomData(customData)
         dataDogTracker.sendError(error)
 
         ' Catch errors in a SceneGraph Project ->
         ' dataDogTracker = CreateObject("roSGNode", "TrackerComponent")
         ' dataDogConfigurationObject = {applicationID: "[application_id]", clientToken: "[application_token]"}
         ' dataDogTracker.callFunc("setConfiguration", ConfigurationObject)
+        ' dataDogTracker.callFunc("setCustomData", customData)
         ' dataDogTracker.callFunc("sendError", error)
     end TRY
 end sub
