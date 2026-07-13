@@ -20,6 +20,10 @@ sub setConfiguration(clientConfiguration as Object)
     m.tracker = Tracker(configurationData)
 end sub
 
+sub setCustomData(customData as Object)
+    m.tracker.setCustomData(customData)
+end sub
+
 sub sendError(errorDetails as Object)
     m.tracker.sendError(errorDetails)
 end sub
