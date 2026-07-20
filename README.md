@@ -67,6 +67,24 @@ dataDogTracker.sendError(error)
 | sampleRate | INTEGER | 100 |
 | trackInteractions | BOOLEAN | TRUE |
 
+### Custom data (optional)
+Call `setCustomData` after `setConfiguration` and before `sendError` to attach additional data to the events. The object is merged into the top level of both the view and the error event, so any RUM event field can be set. When the tracker is used without calling `setCustomData`, the events are sent normally.
+
+To make the data searchable in DataDog, nest custom attributes under `context` and user identity under `usr`:
+- `context` fields can be searched and filtered as `@context.[field_name]` (create a facet for them once in the RUM Explorer)
+- `usr` follows the DataDog RUM user schema (`id`, `name`, `email`) and is searchable through the built-in `@usr.*` facets
+```
+customData = {
+    context: { screen: "MainScene", custom_attribute: "value" },
+    usr: { id: "[user_id]", email: "[user_email]" }
+}
+dataDogTracker.setCustomData(customData)
+```
+When used as a SceneGraph component:
+```
+dataDogTracker.callFunc("setCustomData", customData)
+```
+
 ## How to use the Test Project
 - Download `test-project` file to your machine
 - Note that in the scene component there are 2 ways of the DataDog tracker implementation:

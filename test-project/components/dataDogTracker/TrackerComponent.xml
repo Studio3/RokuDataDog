@@ -15,6 +15,7 @@ limitations under the License. -->
 <component name="TrackerComponent" extends="Group">
     <interface>
         <function name="setConfiguration" />
+        <function name="setCustomData" />
         <function name="sendError" />
     </interface>
 

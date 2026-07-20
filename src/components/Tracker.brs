@@ -17,12 +17,14 @@ function Tracker(configurationData as Object) as Object
         CONFIGURATION_DATA: configurationData
 
         sendError: Tracker__sendError
+        setCustomData: Tracker__setCustomData
 
         _setDefaultValues: Tracker___setDefaultValues
         _getUUID: Tracker___getUUID
         _getDateInMillis: Tracker___getDateInMillis
         _getViewData: Tracker___getViewData
         _getErrorData: Tracker___getErrorData
+        _applyCustomData: Tracker___applyCustomData
         _setDefaultRequestData: Tracker___setDefaultRequestData
         _getRUMApplicationURL: Tracker___getRUMApplicationURL
         _sendEvent: Tracker___sendEvent
@@ -44,10 +46,20 @@ sub Tracker__sendError(errorDetails as Object)
     view = m._getViewData()
 
     if view <> invalid
+        m._applyCustomData(view)
         m._sendEvent(view)
         errorData = m._getErrorData(errorDetails)
+        m._applyCustomData(errorData)
         m._sendEvent(errorData)
     end if
+end sub
+
+sub Tracker__setCustomData(customData as Object)
+    m.customData = customData
+end sub
+
+sub Tracker___applyCustomData(requestBody as Object)
+    if m.customData <> invalid then requestBody.append(m.customData)
 end sub
 
 function Tracker___getUUID() as String
